@@ -1,6 +1,6 @@
 install:
-	docker-compose exec --user=node node npm install
-
+	docker run --rm --volume "./:/node/app" --workdir "/node/app" --publish 8081:8081 -it --user=node node:22 npm install
+	
 bash:
 	docker-compose exec --user=node node bash
 
